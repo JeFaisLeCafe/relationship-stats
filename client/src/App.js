@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Upload from "./pages/upload";
+import Analysis from "./pages/analysis";
 import Up from "./pages/up";
 import { MainContainer } from "./components/styled-components";
 
@@ -14,6 +15,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/upload" component={Upload} />
           <Route path="/up" component={Up} />
+          <Route path="/analysis" component={Analysis} />
         </Switch>
       </MainContainer>
     );

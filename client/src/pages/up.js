@@ -8,7 +8,7 @@ import {
   Button,
   Paragraph
 } from "../components/styled-components";
-import api from "../api.js";
+import constants from "../constants";
 import axios from "axios";
 
 class Up extends Component {
@@ -23,15 +23,12 @@ class Up extends Component {
   onClickHandler = () => {
     const data = new FormData();
     data.append("file", this.state.selectedFile);
-    axios
-      .post("http://localhost:8000/upload", data, {
-        // receive two    parameter endpoint url ,form data
-      })
-      .then(res => {
-        // then print response status
-        console.log(res.statusText);
-        this.setState({ redirect: true });
-      });
+    console.log(constants.apiUrl + "/upload");
+    axios.post(constants.apiUrl + "/upload", data).then(res => {
+      // then print response status
+      console.log(res.statusText);
+      this.setState({ redirect: true });
+    });
   };
 
   onChangeHandler = event => {

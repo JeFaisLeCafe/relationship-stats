@@ -8,7 +8,13 @@ import {
   Button,
   Paragraph
 } from "../components/styled-components";
+import { FacebookProvider, LoginButton } from "react-facebook";
+
 class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Container flexDirection="column" padding="30px">
@@ -24,6 +30,16 @@ class Home extends Component {
         <Link to={"./up"}>
           <Button>Upload</Button>
         </Link>
+
+        <FacebookProvider appId="994194944265752">
+          <LoginButton
+            scope="email"
+            onCompleted={this.handleResponse}
+            onError={this.handleError}
+          >
+            <span>Login via Facebook</span>
+          </LoginButton>
+        </FacebookProvider>
       </Container>
     );
   }
