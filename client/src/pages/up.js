@@ -30,6 +30,7 @@ class Up extends Component {
       .then(res => {
         // then print response status
         console.log(res.statusText);
+        this.setState({ redirect: true });
       });
   };
 
